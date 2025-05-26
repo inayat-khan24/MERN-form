@@ -1,7 +1,9 @@
 import { userModel } from "../mangoose/mangoose.js";
 
 
-// create data with post method
+// =============================================
+//   function of user data insert to mongoDb
+// =============================================
 export const create =   async (req, res) => {
   const { name, email, age } = req.body;
   
@@ -14,7 +16,9 @@ export const create =   async (req, res) => {
     res.status(500).json({ error: 'Error saving form data' });
   }
 }
-// get all user data 
+// =========================================
+//   function of get user all data
+// =========================================
 export const  getAllUser = async(req,res)=>{
 try {
   const userData = await userModel.find()
@@ -27,6 +31,9 @@ try {
   res.status(500).json({ error: error.message });
 }}
 
+// =========================================
+//   function of get user with id
+// =========================================
 export const getUserById = async(req,res)=>{
 try {
     const id = req.params.id;
@@ -38,7 +45,9 @@ const userExist = await userModel.findById(id);
  res.status(500).json({ error: error.message }); 
 }}
 
-
+// =========================================
+//   function of delete mango data
+// =========================================
 export const  deleteData = async(req,res)=>{
 try {
     const id = req.params.id;
@@ -49,6 +58,12 @@ try {
 } catch (error) {
  res.status(500).json({ error: error.message }); 
 }}
+
+
+// =========================================
+//   function of update data of user
+// =========================================
+
 
 export const updateData = async(req,res)=>{
  try {

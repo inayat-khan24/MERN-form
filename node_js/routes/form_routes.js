@@ -24,6 +24,6 @@ router.get("/forms/:id", getUserById);
 router.delete("/forms/:id", deleteData);
 
 // PUT: Update user by ID
-router.put("/forms/:id", updateData);
+router.put("/forms/update/:id",updateData);
 
 export default router;
